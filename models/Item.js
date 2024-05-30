@@ -3,9 +3,12 @@ const Schema = mongoose.Schema;
 
 const ItemSchema = new Schema({
   name: { type: String, required: true },
-  price: { type: Number, required: true },
-  amount: { type: Number, required: true },
-  total: { type: Number, required: true },
+  prices: [
+    {
+      date: { type: Date, required: true },
+      price: { type: Number, required: true },
+    },
+  ],
 });
 
 module.exports = mongoose.model("Item", ItemSchema);
