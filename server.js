@@ -9,6 +9,7 @@ const billRoutes = require("./routes/bill");
 const guaranteeRoutes = require("./routes/guarantee");
 const itemRoutes = require("./routes/item");
 const scrapeRoutes = require("./routes/scrape");
+const logger = require("./middleware/logger");
 require("dotenv").config();
 
 const app = express();
@@ -18,6 +19,9 @@ connectDB();
 
 // Init Middleware
 app.use(express.json());
+
+// Use logger middleware
+app.use(logger);
 
 // Passport middleware
 app.use(passport.initialize());

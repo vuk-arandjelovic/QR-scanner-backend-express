@@ -1,11 +1,11 @@
 const express = require("express");
 const axios = require("axios");
 const cheerio = require("cheerio");
+const parseAndInsertData = require("../utils/scrapeHandler");
 const router = express.Router();
 
-router.post("/scrape", async (req, res) => {
-  const url = req.body;
-
+router.post("/", async (req, res) => {
+  const { url } = req.body;
   if (!url) {
     return res.status(400).json({ msg: "Please provide a URL" });
   }
@@ -13,13 +13,13 @@ router.post("/scrape", async (req, res) => {
   try {
     const { data } = await axios.get(url);
     const $ = cheerio.load(data);
-
-    // Example: Extracting text from a specific element
-    const scrapedData = $(selector).text();
-
-    res.json({ data: scrapedData });
+    // Extracting text from a specific element
+    const scrapedData = $("pre").text();
+    // Pass scraped data to the parsing and inserting function
+    await parseAndInsertData(scrapedData);
+    res.json({ msg: "Data successfully scraped and stored in the database" });
   } catch (err) {
-    console.error(err.message);
+    console.error(err);
     res.status(500).send("Server error");
   }
 });
