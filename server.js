@@ -11,7 +11,6 @@ const itemRoutes = require("./routes/item");
 const scrapeRoutes = require("./routes/scrape");
 const logger = require("./middleware/logger");
 require("dotenv").config();
-
 const app = express();
 
 // Connect Database

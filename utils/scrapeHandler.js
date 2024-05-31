@@ -6,8 +6,10 @@ const Bill = require("../models/Bill");
 const Item = require("../models/Item");
 const geoApiCall = require("../utils/geocode");
 
-async function parseAndInsertData(scrapedData) {
+async function parseAndInsertData(scrapedData, userId) {
   try {
+    const user = await User.findById(userId);
+    if (!user) throw new Error("Session failed, please login again!");
     const data = scrapedData
       .split("\n")
       .map((line) => line.trim())
@@ -153,6 +155,11 @@ async function parseAndInsertData(scrapedData) {
     await store.save();
     await bill.save();
 
+    if (!user.stores_visited.includes(store._id)) {
+      user.stores_visited.push(store._id);
+    }
+    user.bills.push(bill._id);
+    await user.save();
     console.log("Bill successfully scanned!");
   } catch (error) {
     // console.error("Error scanning bill:", error.message);

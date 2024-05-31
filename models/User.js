@@ -8,7 +8,7 @@ const UserSchema = new Schema({
   email: { type: String, required: true, unique: true },
   bills: [{ type: Schema.Types.ObjectId, ref: "Bill" }],
   guarantees: [{ type: Schema.Types.ObjectId, ref: "Guarantee" }],
-  stores_visited: { type: Number, default: 0 },
+  stores_visited: [{ type: mongoose.Schema.Types.ObjectId, ref: "Store" }],
 });
 
 UserSchema.pre("save", async function (next) {
