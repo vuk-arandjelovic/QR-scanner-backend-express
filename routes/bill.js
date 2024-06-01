@@ -3,6 +3,19 @@ const router = express.Router();
 const Bill = require("../models/Bill");
 const passport = require("passport");
 
+router.get(
+  "/getUserBills",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const bills = await Bill.find({ _id: { $in: req.user.bills } });
+      res.json(bills);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Server error");
+    }
+  }
+);
 // Get all bills
 router.get(
   "/",

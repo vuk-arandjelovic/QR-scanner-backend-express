@@ -3,6 +3,21 @@ const router = express.Router();
 const Company = require("../models/Company");
 const passport = require("passport");
 
+router.get(
+  "/getUserCompanies",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const stores = await Store.find({ _id: { $in: req.user.stores } });
+      const companyIds = stores.map((store) => store.company);
+      const companies = await Company.find({ _id: { $in: companyIds } });
+      res.json(companies);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Server error");
+    }
+  }
+);
 // Get all companies
 router.get(
   "/",

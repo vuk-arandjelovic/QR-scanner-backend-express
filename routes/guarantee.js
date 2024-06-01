@@ -3,6 +3,19 @@ const router = express.Router();
 const Guarantee = require("../models/Guarantee");
 const passport = require("passport");
 
+router.get(
+  "/getUserGuarantees",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const guarantees = await Guarantee.find({ user: req.user.id });
+      res.json(guarantees);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Server error");
+    }
+  }
+);
 // Get all guarantees
 router.get(
   "/",
