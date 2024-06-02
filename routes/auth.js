@@ -5,6 +5,9 @@ const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const User = require("../models/User");
 
+router.get("/checkAuthToken", async (req, res) => {});
+router.post("/authorize", async (req, res) => {});
+router.get("/checkUsername", async (req, res) => {});
 router.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
   try {
@@ -43,7 +46,6 @@ router.post("/login", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
-
 router.get(
   "/profile",
   passport.authenticate("jwt", { session: false }),

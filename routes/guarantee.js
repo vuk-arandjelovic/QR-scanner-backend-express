@@ -16,21 +16,6 @@ router.get(
     }
   }
 );
-// Get all guarantees
-router.get(
-  "/",
-  passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    try {
-      const guarantees = await Guarantee.find().populate("bill");
-      res.json(guarantees);
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Server error");
-    }
-  }
-);
-
 // Get a single guarantee by ID
 router.get(
   "/:id",
@@ -49,7 +34,6 @@ router.get(
     }
   }
 );
-
 // Create a new guarantee
 router.post(
   "/",
@@ -99,6 +83,21 @@ router.delete(
       if (!guarantee)
         return res.status(404).json({ msg: "Guarantee not found" });
       res.json({ msg: "Guarantee deleted" });
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Server error");
+    }
+  }
+);
+
+// Get all guarantees
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const guarantees = await Guarantee.find().populate("bill");
+      res.json(guarantees);
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server error");

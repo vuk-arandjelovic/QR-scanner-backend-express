@@ -3,6 +3,7 @@ const router = express.Router();
 const Bill = require("../models/Bill");
 const passport = require("passport");
 
+// TODO: Add query filter for bill
 router.get(
   "/getUserBills",
   passport.authenticate("jwt", { session: false }),
@@ -16,21 +17,6 @@ router.get(
     }
   }
 );
-// Get all bills
-router.get(
-  "/",
-  passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    try {
-      const bills = await Bill.find().populate("store").populate("items");
-      res.json(bills);
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Server error");
-    }
-  }
-);
-
 // Get a single bill by ID
 router.get(
   "/:id",
@@ -49,6 +35,20 @@ router.get(
   }
 );
 
+// Get all bills
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const bills = await Bill.find().populate("store").populate("items");
+      res.json(bills);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Server error");
+    }
+  }
+);
 // Create a new bill
 router.post(
   "/",
@@ -65,7 +65,6 @@ router.post(
     }
   }
 );
-
 // Update a bill by ID
 router.put(
   "/:id",
@@ -86,7 +85,6 @@ router.put(
     }
   }
 );
-
 // Delete a bill by ID
 router.delete(
   "/:id",
