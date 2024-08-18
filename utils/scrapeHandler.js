@@ -14,17 +14,12 @@ async function parseAndInsertData(scrapedData, userId) {
       .split("\n")
       .map((line) => line.trim())
       .filter((line) => line);
-
-    // Safeguard checks
-    if (data.length < 10) {
-      throw new Error("Insufficient data for processing");
-    }
+    if (data.length < 10) throw new Error("Insufficient data for processing");
 
     let company,
       store,
       bill,
       items = [];
-
     const companyPIB = data[1];
     const companyName = data[2];
     const storeDetails = data[3].split("-");
@@ -38,9 +33,8 @@ async function parseAndInsertData(scrapedData, userId) {
       !storeDetails[1] ||
       !storeAddress ||
       !storeCity
-    ) {
+    )
       throw new Error("Missing required fields");
-    }
 
     const totalLine = data.find((line) => line.startsWith("Укупан износ:"));
     const pdvLine = data.find((line) =>
@@ -49,9 +43,8 @@ async function parseAndInsertData(scrapedData, userId) {
     const dateLine = data.find((line) => line.startsWith("ПФР време:"));
     const pfrLine = data.find((line) => line.startsWith("ПФР број рачуна:"));
 
-    if (!totalLine || !pdvLine || !dateLine || !pfrLine) {
+    if (!totalLine || !pdvLine || !dateLine || !pfrLine)
       throw new Error("Failed to parse required fields from data");
-    }
 
     const total = parseFloat(totalLine.split(":")[1].trim().replace(",", "."));
     const pdv = parseFloat(pdvLine.split(":")[1].trim().replace(",", "."));
@@ -96,9 +89,7 @@ async function parseAndInsertData(scrapedData, userId) {
 
     // Check if the bill already exists
     bill = await Bill.findOne({ pfr: pfr });
-    if (bill) {
-      throw new Error(`Bill with PFR ${pfr} already exists`);
-    }
+    if (bill) throw new Error(`Bill with PFR ${pfr} already exists`);
 
     const itemsIndexStart =
       data.indexOf("Назив   Цена         Кол.         Укупно") + 1;
@@ -154,7 +145,6 @@ async function parseAndInsertData(scrapedData, userId) {
     await company.save();
     await store.save();
     await bill.save();
-
     if (!user.stores_visited.includes(store._id)) {
       user.stores_visited.push(store._id);
     }

@@ -2,81 +2,32 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const passport = require("passport");
+const Response = require("../utils/responseHandler");
 
 router.get(
   "/getUserData",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const user = await User.findById(req.user.id).select("-password");
-      if (!user) {
-        return res.status(404).json({ msg: "User not found" });
+      const response = await User.findById(req.user.id).select("-password");
+      if (!response) {
+        Response.json(res, {
+          status: 404,
+          message: "User not found",
+        });
       }
-      res.json(user);
-    } catch (err) {
-      console.error(err);
-      res.status(500).send("Server error");
-    }
-  }
-);
-// Get all users
-router.get(
-  "/",
-  passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    try {
-      const users = await User.find().populate("bills").populate("guarantees");
-      res.json(users);
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Server error");
-    }
-  }
-);
-
-// Get a single user by ID
-router.get(
-  "/:id",
-  passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    try {
-      const user = await User.findById(req.params.id)
-        .populate("bills")
-        .populate("guarantees");
-      if (!user) return res.status(404).json({ msg: "User not found" });
-      res.json(user);
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Server error");
-    }
-  }
-);
-
-// Create a new user
-router.post(
-  "/",
-  passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    const { username, password, email, bills, guarantees, stores_visited } =
-      req.body;
-    try {
-      const newUser = new User({
-        username,
-        password,
-        email,
-        bills,
-        guarantees,
-        stores_visited,
+      Response.json(res, {
+        message: "User found",
+        response,
       });
-      const user = await newUser.save();
-      res.json(user);
     } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Server error");
+      Response.json(res, {
+        status: 400,
+        message: "User not found",
+      });
     }
   }
 );
-
 // Update a user by ID
 router.put(
   "/:id",
@@ -92,22 +43,6 @@ router.put(
       );
       if (!user) return res.status(404).json({ msg: "User not found" });
       res.json(user);
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Server error");
-    }
-  }
-);
-
-// Delete a user by ID
-router.delete(
-  "/:id",
-  passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    try {
-      const user = await User.findByIdAndDelete(req.params.id);
-      if (!user) return res.status(404).json({ msg: "User not found" });
-      res.json({ msg: "User deleted" });
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server error");
