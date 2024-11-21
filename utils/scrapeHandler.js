@@ -5,7 +5,7 @@ const Store = require("../models/Store");
 const Bill = require("../models/Bill");
 const Item = require("../models/Item");
 const geoApiCall = require("../utils/geocode");
-
+const { parseBillAmount, parseBillItem } = require("../utils/billAmountParser");
 async function parseAndInsertData(scrapedData, userId) {
   try {
     const user = await User.findById(userId);
@@ -45,9 +45,9 @@ async function parseAndInsertData(scrapedData, userId) {
 
     if (!totalLine || !pdvLine || !dateLine || !pfrLine)
       throw new Error("Failed to parse required fields from data");
-
-    const total = parseFloat(totalLine.split(":")[1].trim().replace(",", "."));
-    const pdv = parseFloat(pdvLine.split(":")[1].trim().replace(",", "."));
+    console.log(totalLine, pdvLine, dateLine, pfrLine);
+    const total = parseBillAmount(totalLine.split(":")[1].trim());
+    const pdv = parseBillAmount(pdvLine.split(":")[1].trim());
     const dateString = dateLine.split(":").slice(1).join(":").trim();
     const [datePart, timePart] = dateString.split(" ");
     const [day, month, year] = datePart.split(".");
@@ -101,9 +101,11 @@ async function parseAndInsertData(scrapedData, userId) {
     for (let i = itemsIndexStart; i < itemsIndexEnd; i += 2) {
       const itemName = data[i];
       const itemDetails = data[i + 1].split(/\s+/);
-      const itemPrice = parseFloat(itemDetails[0]?.replace(",", "."));
-      const itemAmount = parseFloat(itemDetails[1]);
-      const itemTotal = parseFloat(itemDetails[2]?.replace(",", "."));
+      const {
+        price: itemPrice,
+        amount: itemAmount,
+        total: itemTotal,
+      } = parseBillItem(itemDetails);
 
       let item = await Item.findOne({ name: itemName });
 

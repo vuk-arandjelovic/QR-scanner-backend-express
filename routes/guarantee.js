@@ -40,9 +40,15 @@ router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const { bill, item, name, expiration } = req.body;
+    const { user, bill, item, name, expiration } = req.body;
     try {
-      const newGuarantee = new Guarantee({ bill, item, name, expiration });
+      const newGuarantee = new Guarantee({
+        user,
+        bill,
+        item,
+        name,
+        expiration,
+      });
       const guarantee = await newGuarantee.save();
       res.json(guarantee);
     } catch (err) {
