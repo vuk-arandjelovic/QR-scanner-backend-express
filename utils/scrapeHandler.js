@@ -45,7 +45,7 @@ async function parseAndInsertData(scrapedData, userId) {
 
     if (!totalLine || !pdvLine || !dateLine || !pfrLine)
       throw new Error("Failed to parse required fields from data");
-    console.log(totalLine, pdvLine, dateLine, pfrLine);
+    // console.log(totalLine, pdvLine, dateLine, pfrLine);
     const total = parseBillAmount(totalLine.split(":")[1].trim());
     const pdv = parseBillAmount(pdvLine.split(":")[1].trim());
     const dateString = dateLine.split(":").slice(1).join(":").trim();
@@ -54,6 +54,9 @@ async function parseAndInsertData(scrapedData, userId) {
     const [hours, minutes, seconds] = timePart.split(":");
     const date = new Date(year, month - 1, day, hours, minutes, seconds);
     const pfr = pfrLine.split(":")[1].trim();
+    // Check if the bill already exists
+    bill = await Bill.findOne({ pfr: pfr });
+    if (bill) throw new Error(`Bill with PFR ${pfr} already exists`);
 
     // Check if the company already exists
     company = await Company.findOne({ pib: parseInt(companyPIB) });
@@ -86,10 +89,6 @@ async function parseAndInsertData(scrapedData, userId) {
       });
       company.stores.push(store._id);
     }
-
-    // Check if the bill already exists
-    bill = await Bill.findOne({ pfr: pfr });
-    if (bill) throw new Error(`Bill with PFR ${pfr} already exists`);
 
     const itemsIndexStart =
       data.indexOf("Назив   Цена         Кол.         Укупно") + 1;

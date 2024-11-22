@@ -28,7 +28,9 @@ router.post(
       res.json({ msg: "Bill successfully scanned!" });
     } catch (err) {
       console.error(err);
-      res.status(500).json({ msg: "Server error.", error: err.message });
+      res
+        .status(500)
+        .json({ msg: "Processing bill data failed.", error: err.message });
     }
   }
 );

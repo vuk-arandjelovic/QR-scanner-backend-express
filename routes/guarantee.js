@@ -9,7 +9,14 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const guarantees = await Guarantee.find({ user: req.user.id });
+      const guarantees = await Guarantee.find({ user: req.user.id }).populate({
+        path: "bill",
+        model: "Bill",
+        populate: {
+          path: "store",
+          model: "Store",
+        },
+      });
       res.json(guarantees);
     } catch (err) {
       console.error(err);
@@ -63,11 +70,11 @@ router.put(
   "/:id",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const { bill, item, name, expiration } = req.body;
+    const { user, bill, item, name, expiration } = req.body;
     try {
       const guarantee = await Guarantee.findByIdAndUpdate(
         req.params.id,
-        { bill, item, name, expiration },
+        { user, bill, item, name, expiration },
         { new: true }
       );
       if (!guarantee)
