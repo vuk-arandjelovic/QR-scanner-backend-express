@@ -12,7 +12,7 @@ router.get(
     try {
       const stores = await Store.find({
         _id: { $in: req.user.stores_visited },
-      });
+      }).populate("company");
       res.json(stores);
     } catch (err) {
       console.error(err);
