@@ -5,26 +5,6 @@ const Bill = require("../models/Bill");
 const passport = require("passport");
 const Response = require("../utils/responseHandler");
 
-// Route to search items by name
-router.get(
-  "/search",
-  passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    const { name } = req.query;
-    if (!name) {
-      return res
-        .status(400)
-        .json({ msg: "Please provide an item name to search." });
-    }
-    try {
-      const items = await Item.find({ name: new RegExp(name, "i") });
-      res.json(items);
-    } catch (err) {
-      console.error(err);
-      res.status(500).send("Server error");
-    }
-  }
-);
 router.get(
   "/getAll",
   passport.authenticate("jwt", { session: false }),
@@ -72,4 +52,47 @@ router.get(
     }
   }
 );
+// Search items by name
+router.get(
+  "/search",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const { name } = req.query;
+      if (!name) {
+        return Response.json(res, {
+          status: 400,
+          message: "Search query is required",
+        });
+      }
+
+      // Case-insensitive search using regex
+      const items = await Item.find({
+        name: { $regex: name, $options: "i" },
+      }).sort({ "prices.date": -1 });
+
+      // Transform items to include latest price info
+      const transformedItems = items.map((item) => {
+        const plainItem = item.toObject();
+        plainItem.prices = plainItem.prices.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        );
+        return plainItem;
+      });
+
+      Response.json(res, {
+        status: 200,
+        message: "Items found",
+        response: transformedItems,
+      });
+    } catch (err) {
+      console.error(err);
+      Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
+    }
+  }
+);
+
 module.exports = router;
