@@ -2,9 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Store = require("../models/Store");
 const passport = require("passport");
-const Response = require("../utils/responseHandler");
 
-// TODO: add query for company
 router.get(
   "/getUserStores",
   passport.authenticate("jwt", { session: false }),
