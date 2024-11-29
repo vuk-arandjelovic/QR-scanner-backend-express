@@ -71,7 +71,7 @@ router.get(
       Response.json(res, {
         status: 200,
         message: "Bills found",
-        response: transformedBills,
+        response: transformedBills.reverse(),
       });
     } catch (err) {
       console.error(err);
