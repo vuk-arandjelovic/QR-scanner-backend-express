@@ -9,21 +9,21 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const response = await User.findById(req.user.id).select("-password");
-      if (!response) {
-        Response.json(res, {
+      const user = await User.findById(req.user.id).select("-password");
+      if (!user) {
+        return Response.json(res, {
           status: 404,
           message: "User not found",
         });
       }
-      Response.json(res, {
+      return Response.json(res, {
         message: "User found",
-        response,
+        response: user,
       });
     } catch (err) {
-      Response.json(res, {
-        status: 400,
-        message: "User not found",
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
       });
     }
   }
@@ -41,11 +41,21 @@ router.put(
         { username, password, email, bills, guarantees, stores_visited },
         { new: true }
       );
-      if (!user) return res.status(404).json({ msg: "User not found" });
-      res.json(user);
+      if (!user)
+        return Response.json(res, {
+          status: 404,
+          message: "User not found",
+        });
+      return Response.json(res, {
+        message: "User found",
+        response: user,
+      });
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server error");
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
     }
   }
 );

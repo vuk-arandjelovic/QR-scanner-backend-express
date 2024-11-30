@@ -27,7 +27,7 @@ router.get(
     } catch (err) {
       console.error(err.message);
       return Response.json(res, {
-        status: 400,
+        status: 500,
         message: "Server error",
       });
     }
@@ -66,7 +66,7 @@ router.post("/login", async (req, res) => {
   } catch (err) {
     console.error(err.message);
     return Response.json(res, {
-      status: 400,
+      status: 500,
       message: "Server error",
     });
   }
@@ -86,7 +86,7 @@ router.get("/check", async (req, res) => {
   } catch (err) {
     console.error(err.message);
     return Response.json(res, {
-      status: 400,
+      status: 500,
       message: "Server error",
     });
   }
@@ -115,7 +115,7 @@ router.post("/register", async (req, res) => {
   } catch (err) {
     console.error(err.message);
     return Response.json(res, {
-      status: 400,
+      status: 500,
       message: "Server error",
     });
   }

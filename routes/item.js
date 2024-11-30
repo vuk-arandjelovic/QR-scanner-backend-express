@@ -11,10 +11,16 @@ router.get(
   async (req, res) => {
     try {
       const items = await Item.find({});
-      res.json(items);
+      return Response.json(res, {
+        message: "Items found",
+        response: items,
+      });
     } catch (err) {
       console.error(err);
-      res.status(500).send("Server error");
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
     }
   }
 );
@@ -23,11 +29,12 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const { billId } = req.query; // Changed from req.billId to req.query
+      const { billId } = req.query;
       if (!billId) {
-        return res
-          .status(400)
-          .json({ msg: "Please provide a bill ID to search." });
+        return Response.json(res, {
+          status: 400,
+          message: "Please provide a bill ID to search.",
+        });
       }
       const bill = await Bill.findById(billId).populate({
         path: "items.itemId",
@@ -35,7 +42,10 @@ router.get(
       });
 
       if (!bill) {
-        return res.status(404).json({ msg: "Bill not found" });
+        return Response.json(res, {
+          status: 404,
+          message: "Bill not found",
+        });
       }
 
       const items = bill.items.map((item) => ({
@@ -45,10 +55,16 @@ router.get(
         total: item.total,
       }));
 
-      res.json(items);
+      return Response.json(res, {
+        message: "Items found",
+        response: items,
+      });
     } catch (err) {
       console.error(err);
-      res.status(500).send("Server error");
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
     }
   }
 );
@@ -80,14 +96,13 @@ router.get(
         return plainItem;
       });
 
-      Response.json(res, {
-        status: 200,
+      return Response.json(res, {
         message: "Items found",
         response: transformedItems,
       });
     } catch (err) {
       console.error(err);
-      Response.json(res, {
+      return Response.json(res, {
         status: 500,
         message: "Server error",
       });

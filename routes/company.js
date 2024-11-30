@@ -15,10 +15,16 @@ router.get(
       });
       const companyIds = stores.map((store) => store.company);
       const companies = await Company.find({ _id: { $in: companyIds } });
-      res.json(companies);
+      return Response.json(res, {
+        message: "Companies found",
+        response: companies,
+      });
     } catch (err) {
       console.error(err);
-      res.status(500).send("Server error");
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
     }
   }
 );

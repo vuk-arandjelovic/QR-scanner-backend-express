@@ -11,10 +11,16 @@ router.get(
   async (req, res) => {
     try {
       const bills = await Bill.find({ _id: { $in: req.user.bills } });
-      res.json(bills);
+      return Response.json(res, {
+        message: "Bills found",
+        response: bills,
+      });
     } catch (err) {
       console.error(err);
-      res.status(500).send("Server error");
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
     }
   }
 );
@@ -24,7 +30,11 @@ router.get(
   async (req, res) => {
     try {
       const user = await User.findById(req.user._id);
-      if (!user) return res.status(404).json({ msg: "User not found" });
+      if (!user)
+        return Response.json(res, {
+          status: 404,
+          message: "User not found",
+        });
 
       const bills = await Bill.find({ _id: { $in: user.bills } })
         .populate({
@@ -68,14 +78,16 @@ router.get(
         };
       });
 
-      Response.json(res, {
-        status: 200,
+      return Response.json(res, {
         message: "Bills found",
         response: transformedBills.reverse(),
       });
     } catch (err) {
       console.error(err);
-      res.status(500).send("Server error");
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
     }
   }
 );
@@ -95,7 +107,11 @@ router.get(
           },
         })
         .populate("items.itemId");
-      if (!bill) return res.status(404).json({ msg: "Bill not found" });
+      if (!bill)
+        return Response.json(res, {
+          status: 404,
+          message: "Bill not found",
+        });
 
       const plainBill = bill.toObject();
 
@@ -126,14 +142,16 @@ router.get(
         items: transformedItems,
       };
 
-      Response.json(res, {
-        status: 200,
+      return Response.json(res, {
         message: "Bill found",
         response,
       });
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server error");
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
     }
   }
 );

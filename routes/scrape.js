@@ -4,32 +4,50 @@ const cheerio = require("cheerio");
 const parseAndInsertData = require("../utils/scrapeHandler");
 const passport = require("passport");
 const router = express.Router();
+const Response = require("../utils/responseHandler");
 
 router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     const { url } = req.body;
-    if (!url) return res.status(400).json({ msg: "Please provide a URL!" });
+    if (!url)
+      return Response.json(res, {
+        status: 400,
+        message: "Please provide a URL!",
+      });
     if (!url.startsWith("https://suf.purs.gov.rs/v/?vl="))
-      return res.status(400).json({ msg: "QR code isn't a bill!" });
+      return Response.json(res, {
+        status: 400,
+        message: "QR code isn't a valid bill URL!",
+      });
     try {
       const { data } = await axios.get(url);
       const $ = cheerio.load(data);
       const scrapedData = $("pre").text();
 
       if (!scrapedData)
-        return res.status(400).json({ msg: "Failed to retrieve bill data!" });
+        return Response.json(res, {
+          status: 400,
+          message: "Failed to retrieve bill data!",
+        });
       if (scrapedData.split("\n").length < 10)
-        return res.status(400).json({ msg: "Incomplete bill data!" });
+        return Response.json(res, {
+          status: 400,
+          message: "Incomplete bill data!",
+        });
 
       await parseAndInsertData(scrapedData, req.user._id);
-      res.json({ msg: "Bill successfully scanned!" });
+      return Response.json(res, {
+        message: "Bill successfully scanned!",
+        response: { success: true },
+      });
     } catch (err) {
       console.error(err);
-      res
-        .status(500)
-        .json({ msg: "Processing bill data failed.", error: err.message });
+      return Response.json(res, {
+        status: 500,
+        message: err.message || "Processing bill data failed.",
+      });
     }
   }
 );

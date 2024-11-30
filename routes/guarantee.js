@@ -17,10 +17,16 @@ router.get(
           model: "Store",
         },
       });
-      res.json(guarantees);
+      return Response.json(res, {
+        message: "Guarantees found",
+        response: guarantees,
+      });
     } catch (err) {
       console.error(err);
-      res.status(500).send("Server error");
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
     }
   }
 );
@@ -34,11 +40,20 @@ router.get(
         "bill"
       );
       if (!guarantee)
-        return res.status(404).json({ msg: "Guarantee not found" });
-      res.json(guarantee);
+        return Response.json(res, {
+          status: 404,
+          message: "Guarantee not found",
+        });
+      return Response.json(res, {
+        message: "Guarantee found",
+        response: guarantee,
+      });
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server error");
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
     }
   }
 );
@@ -57,10 +72,16 @@ router.post(
         expiration,
       });
       const guarantee = await newGuarantee.save();
-      res.json(guarantee);
+      return Response.json(res, {
+        message: "Guarantee created",
+        response: guarantee,
+      });
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server error");
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
     }
   }
 );
@@ -78,11 +99,20 @@ router.put(
         { new: true }
       );
       if (!guarantee)
-        return res.status(404).json({ msg: "Guarantee not found" });
-      res.json(guarantee);
+        return Response.json(res, {
+          status: 404,
+          message: "Guarantee not found",
+        });
+      return Response.json(res, {
+        message: "Guarantee updated",
+        response: guarantee,
+      });
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server error");
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
     }
   }
 );
@@ -95,11 +125,19 @@ router.delete(
     try {
       const guarantee = await Guarantee.findByIdAndDelete(req.params.id);
       if (!guarantee)
-        return res.status(404).json({ msg: "Guarantee not found" });
-      res.json({ msg: "Guarantee deleted" });
+        return Response.json(res, {
+          status: 404,
+          message: "Guarantee not found",
+        });
+      return Response.json(res, {
+        message: "Guarantee deleted",
+      });
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server error");
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
     }
   }
 );
@@ -111,10 +149,16 @@ router.get(
   async (req, res) => {
     try {
       const guarantees = await Guarantee.find().populate("bill");
-      res.json(guarantees);
+      return Response.json(res, {
+        message: "Guarantees found",
+        response: guarantees,
+      });
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server error");
+      return Response.json(res, {
+        status: 500,
+        message: "Server error",
+      });
     }
   }
 );
