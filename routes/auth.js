@@ -5,34 +5,21 @@ const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const User = require("../models/User");
 const Response = require("../utils/responseHandler");
+const authMiddleware = require("../middleware/auth-wrapper");
 
-router.get(
-  "/login",
-  passport.authenticate("jwt", {
-    session: false,
-  }),
-  async (req, res) => {
-    console.log(req);
-    const user = req.user;
-    try {
-      if (!user)
-        return Response.json(res, {
-          status: 400,
-          message: "Server error",
-        });
-      return Response.json(res, {
-        message: "User found",
-        response: user,
-      });
-    } catch (err) {
-      console.error(err.message);
-      return Response.json(res, {
-        status: 500,
-        message: "Server error",
-      });
-    }
+router.get("/login", authMiddleware, async (req, res) => {
+  try {
+    return Response.json(res, {
+      message: "User found",
+    });
+  } catch (err) {
+    console.error(err.message);
+    return Response.json(res, {
+      status: 500,
+      message: "Server error",
+    });
   }
-);
+});
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -54,7 +41,7 @@ router.post("/login", async (req, res) => {
     jwt.sign(
       payload,
       process.env.JWT_SECRET,
-      { expiresIn: "1h" },
+      { expiresIn: process.env.JWT_EXPIRATION_TIME },
       (err, token) => {
         if (err) throw err;
         return Response.json(res, {
@@ -68,6 +55,27 @@ router.post("/login", async (req, res) => {
     return Response.json(res, {
       status: 500,
       message: "Server error",
+    });
+  }
+});
+router.post("/refresh", async (req, res) => {
+  try {
+    const { token } = req.body;
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    // Issue new token
+    const newToken = jwt.sign({ id: decoded.id }, process.env.JWT_SECRET, {
+      expiresIn: process.env.JWT_EXPIRATION_TIME,
+    });
+
+    return Response.json(res, {
+      message: "Token refreshed",
+      response: { token: newToken },
+    });
+  } catch (err) {
+    return Response.json(res, {
+      status: 401,
+      message: "Invalid token",
     });
   }
 });
