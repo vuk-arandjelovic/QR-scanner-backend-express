@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Item = require("../models/Item");
 const Bill = require("../models/Bill");
-const passport = require("passport");
 const Response = require("../utils/responseHandler");
 const authMiddleware = require("../middleware/auth-wrapper");
 

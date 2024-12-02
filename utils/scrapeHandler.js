@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const User = require("../models/User");
 const Company = require("../models/Company");
 const Store = require("../models/Store");
@@ -9,6 +8,7 @@ const { parseBillAmount, parseBillItem } = require("../utils/billAmountParser");
 
 async function parseAndInsertData(scrapedData, userId) {
   try {
+    console.log(scrapedData);
     const user = await User.findById(userId);
     if (!user) throw new Error("Session failed, please login again!");
 

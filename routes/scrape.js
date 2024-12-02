@@ -2,7 +2,6 @@ const express = require("express");
 const axios = require("axios");
 const cheerio = require("cheerio");
 const parseAndInsertData = require("../utils/scrapeHandler");
-const passport = require("passport");
 const router = express.Router();
 const Response = require("../utils/responseHandler");
 const authMiddleware = require("../middleware/auth-wrapper");

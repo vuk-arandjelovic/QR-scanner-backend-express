@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Company = require("../models/Company");
 const Store = require("../models/Store");
-const passport = require("passport");
 const Response = require("../utils/responseHandler");
 const authMiddleware = require("../middleware/auth-wrapper");
 
