@@ -16,7 +16,7 @@ router.get("/getUserGuarantees", authMiddleware, async (req, res) => {
     });
     return Response.json(res, {
       message: "Guarantees found",
-      response: guarantees,
+      response: guarantees.reverse(),
     });
   } catch (err) {
     console.error(err);
