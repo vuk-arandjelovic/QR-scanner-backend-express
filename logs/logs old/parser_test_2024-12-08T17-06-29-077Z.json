@@ -1,0 +1,1221 @@
+{
+  "summary": {
+    "total": 29,
+    "success": 18,
+    "failure": 11,
+    "successRate": "62.07%"
+  },
+  "results": [
+    {
+      "billIndex": 0,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 103482850,
+        "companyName": "DELHAIZE SERBIA",
+        "storeId": "1002218",
+        "storeName": "167",
+        "address": "ВОЈВОДЕ СТЕПЕ 318",
+        "city": "Београд-Вождовац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1002218-167 - Maxi",
+            "addressLines": [
+              "ВОЈВОДЕ СТЕПЕ 318"
+            ],
+            "cityLine": "Београд-Вождовац"
+          }
+        }
+      },
+      "original": {
+        "pib": 103482850,
+        "companyName": "DELHAIZE SERBIA",
+        "storeId": "1002218",
+        "storeName": "167",
+        "address": "ВОЈВОДЕ СТЕПЕ 318",
+        "city": "Београд-Вождовац",
+        "date": "2023-08-02T14:03:55.000Z",
+        "pfr": "JBXVHMMK-JBXVHMMK-18040",
+        "total": 2278.78,
+        "pdv": 367.82
+      }
+    },
+    {
+      "billIndex": 1,
+      "success": false,
+      "differences": {
+        "city": {
+          "parsed": "Београд-Вождовац",
+          "original": "ВОЈВОДЕ СТЕПЕ 353"
+        }
+      },
+      "parsed": {
+        "pib": 101670560,
+        "companyName": "MERCATOR-S",
+        "storeId": "MERCATOR",
+        "storeName": "S",
+        "address": "1109581-IDEA 285",
+        "city": "Београд-Вождовац",
+        "debug": {
+          "special": "mercator"
+        }
+      },
+      "original": {
+        "pib": 101670560,
+        "companyName": "MERCATOR-S",
+        "storeId": "MERCATOR",
+        "storeName": "S",
+        "address": "1109581-IDEA 285",
+        "city": "ВОЈВОДЕ СТЕПЕ 353",
+        "date": "2023-07-30T16:14:48.000Z",
+        "pfr": "23UWDCMW-23UWDCMW-44687",
+        "total": 1264.22,
+        "pdv": 199.7
+      }
+    },
+    {
+      "billIndex": 2,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 107166872,
+        "companyName": "CINEPLEXX SRB",
+        "storeId": "1143997",
+        "storeName": "Cineplexx Galerija Belgrade",
+        "address": "БУЛЕВАР ВУДРОА ВИЛСОНА 12",
+        "city": "Београд-Савски Венац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1143997-Cineplexx Galerija Belgrade",
+            "addressLines": [
+              "БУЛЕВАР ВУДРОА ВИЛСОНА 12"
+            ],
+            "cityLine": "Београд-Савски Венац"
+          }
+        }
+      },
+      "original": {
+        "pib": 107166872,
+        "companyName": "CINEPLEXX SRB",
+        "storeId": "1143997",
+        "storeName": "Cineplexx Galerija Belgrade",
+        "address": "БУЛЕВАР ВУДРОА ВИЛСОНА 12",
+        "city": "Београд-Савски Венац",
+        "date": "2023-08-15T15:26:49.000Z",
+        "pfr": "4EL6Z6DT-4EL6Z6DT-55066",
+        "total": 1280,
+        "pdv": 213.33
+      }
+    },
+    {
+      "billIndex": 3,
+      "success": false,
+      "differences": {
+        "city": {
+          "parsed": "Београд-Врачар",
+          "original": "БУЛЕВАР КРАЉА АЛЕКСАНДРА 62"
+        }
+      },
+      "parsed": {
+        "pib": 100000207,
+        "companyName": "NICEFOODS DOO BEOGRAD",
+        "storeId": "1012990",
+        "storeName": "NICEFOODS DOO BEOGRAD OGRANAK",
+        "address": "RESTORAN BULEVAR",
+        "city": "Београд-Врачар",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 6,
+            "kasir": 7
+          },
+          "rawData": {
+            "storeLine": "1012990-NICEFOODS DOO BEOGRAD OGRANAK",
+            "addressLines": [
+              "RESTORAN BULEVAR",
+              "БУЛЕВАР КРАЉА АЛЕКСАНДРА 62"
+            ],
+            "cityLine": "Београд-Врачар"
+          }
+        }
+      },
+      "original": {
+        "pib": 100000207,
+        "companyName": "NICEFOODS DOO BEOGRAD",
+        "storeId": "1012990",
+        "storeName": "NICEFOODS DOO BEOGRAD OGRANAK",
+        "address": "RESTORAN BULEVAR",
+        "city": "БУЛЕВАР КРАЉА АЛЕКСАНДРА 62",
+        "date": "2023-06-12T20:59:09.000Z",
+        "pfr": "KZWVK6LG-KZWVK6LG-82409",
+        "total": 400,
+        "pdv": 66.67
+      }
+    },
+    {
+      "billIndex": 4,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 107216349,
+        "companyName": "STARCAT",
+        "storeId": "1171230",
+        "storeName": "INTERGALACTIC DINER 4",
+        "address": "ОБИЛИЋЕВ ВЕНАЦ 1-3",
+        "city": "Београд-Стари Град",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1171230-INTERGALACTIC DINER 4",
+            "addressLines": [
+              "ОБИЛИЋЕВ ВЕНАЦ 1-3"
+            ],
+            "cityLine": "Београд-Стари Град"
+          }
+        }
+      },
+      "original": {
+        "pib": 107216349,
+        "companyName": "STARCAT",
+        "storeId": "1171230",
+        "storeName": "INTERGALACTIC DINER 4",
+        "address": "ОБИЛИЋЕВ ВЕНАЦ 1-3",
+        "city": "Београд-Стари Град",
+        "date": "2023-06-12T20:23:08.000Z",
+        "pfr": "HTVU39RH-HTVU39RH-45042",
+        "total": 4255,
+        "pdv": 709.17
+      }
+    },
+    {
+      "billIndex": 5,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 103482850,
+        "companyName": "DELHAIZE SERBIA",
+        "storeId": "1005701",
+        "storeName": "6237 Napredak",
+        "address": "ЉУБА ВУЧКОВИЋА 3",
+        "city": "Београд-Вождовац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1005701-6237 Napredak",
+            "addressLines": [
+              "ЉУБА ВУЧКОВИЋА 3"
+            ],
+            "cityLine": "Београд-Вождовац"
+          }
+        }
+      },
+      "original": {
+        "pib": 103482850,
+        "companyName": "DELHAIZE SERBIA",
+        "storeId": "1005701",
+        "storeName": "6237 Napredak",
+        "address": "ЉУБА ВУЧКОВИЋА 3",
+        "city": "Београд-Вождовац",
+        "date": "2023-08-16T13:08:01.000Z",
+        "pfr": "XSPPBYU4-XSPPBYU4-17584",
+        "total": 595.36,
+        "pdv": 99.23
+      }
+    },
+    {
+      "billIndex": 6,
+      "success": false,
+      "differences": {
+        "storeName": {
+          "parsed": "K-FOOD",
+          "original": "K"
+        }
+      },
+      "parsed": {
+        "pib": 113073217,
+        "companyName": "K&S COMBINE",
+        "storeId": "1260676",
+        "storeName": "K-FOOD",
+        "address": "БУЛЕВАР КРАЉА АЛЕКСАНДРА 28",
+        "city": "Београд-Врачар",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1260676-K-FOOD",
+            "addressLines": [
+              "БУЛЕВАР КРАЉА АЛЕКСАНДРА 28"
+            ],
+            "cityLine": "Београд-Врачар"
+          }
+        }
+      },
+      "original": {
+        "pib": 113073217,
+        "companyName": "K&S COMBINE",
+        "storeId": "1260676",
+        "storeName": "K",
+        "address": "БУЛЕВАР КРАЉА АЛЕКСАНДРА 28",
+        "city": "Београд-Врачар",
+        "date": "2023-08-12T17:51:33.000Z",
+        "pfr": "9VTD4W5U-9VTD4W5U-5556",
+        "total": 1530,
+        "pdv": 255
+      }
+    },
+    {
+      "billIndex": 7,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 100203864,
+        "companyName": "АУ ''ВАЛЕРИЈАНА ВУЈАДИНОВИЋ ФАРМ''",
+        "storeId": "1121213",
+        "storeName": "Апотека Валеријана 3",
+        "address": "ХАЏИ-ЂЕРИНА 27",
+        "city": "Београд-Врачар",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1121213-Апотека Валеријана 3",
+            "addressLines": [
+              "ХАЏИ-ЂЕРИНА 27"
+            ],
+            "cityLine": "Београд-Врачар"
+          }
+        }
+      },
+      "original": {
+        "pib": 100203864,
+        "companyName": "АУ ''ВАЛЕРИЈАНА ВУЈАДИНОВИЋ ФАРМ''",
+        "storeId": "1121213",
+        "storeName": "Апотека Валеријана 3",
+        "address": "ХАЏИ-ЂЕРИНА 27",
+        "city": "Београд-Врачар",
+        "date": "2023-08-12T15:13:41.000Z",
+        "pfr": "3P43T3LC-3P43T3LC-48933",
+        "total": 1539,
+        "pdv": 256.5
+      }
+    },
+    {
+      "billIndex": 8,
+      "success": false,
+      "differences": {
+        "city": {
+          "parsed": "Београд-Савски Венац",
+          "original": "КОСТЕ ГЛАВИНИЋА 3А"
+        }
+      },
+      "parsed": {
+        "pib": 100296046,
+        "companyName": "KOKI",
+        "storeId": "1306139",
+        "storeName": "Ivan Stojanovic PR STZUR KOKI",
+        "address": "Beograd",
+        "city": "Београд-Савски Венац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 6,
+            "kasir": 7
+          },
+          "rawData": {
+            "storeLine": "1306139-Ivan Stojanovic PR STZUR KOKI",
+            "addressLines": [
+              "Beograd",
+              "КОСТЕ ГЛАВИНИЋА 3А"
+            ],
+            "cityLine": "Београд-Савски Венац"
+          }
+        }
+      },
+      "original": {
+        "pib": 100296046,
+        "companyName": "KOKI",
+        "storeId": "1306139",
+        "storeName": "Ivan Stojanovic PR STZUR KOKI",
+        "address": "Beograd",
+        "city": "КОСТЕ ГЛАВИНИЋА 3А",
+        "date": "2024-11-29T13:57:48.000Z",
+        "pfr": "RPJHG7B9-RPJHG7B9-10490",
+        "total": 380,
+        "pdv": 63.33
+      }
+    },
+    {
+      "billIndex": 9,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 107169244,
+        "companyName": "KLANICA MILAN",
+        "storeId": "1069899",
+        "storeName": "Klanica Milan prodavnica br. 6",
+        "address": "КОСТЕ ГЛАВИНИЋА 3",
+        "city": "Београд-Савски Венац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1069899-Klanica Milan prodavnica br. 6",
+            "addressLines": [
+              "КОСТЕ ГЛАВИНИЋА 3"
+            ],
+            "cityLine": "Београд-Савски Венац"
+          }
+        }
+      },
+      "original": {
+        "pib": 107169244,
+        "companyName": "KLANICA MILAN",
+        "storeId": "1069899",
+        "storeName": "Klanica Milan prodavnica br. 6",
+        "address": "КОСТЕ ГЛАВИНИЋА 3",
+        "city": "Београд-Савски Венац",
+        "date": "2024-11-29T13:59:30.000Z",
+        "pfr": "ML94SAVT-ML94SAVT-17771",
+        "total": 669.47,
+        "pdv": 111.58
+      }
+    },
+    {
+      "billIndex": 10,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 100065309,
+        "companyName": "VEROPOULOS DOO BEOGRAD",
+        "storeId": "1027176",
+        "storeName": "Veropoulos 5",
+        "address": "ВОЈВОДЕ СТЕПЕ 249",
+        "city": "Београд-Вождовац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1027176-Veropoulos 5",
+            "addressLines": [
+              "ВОЈВОДЕ СТЕПЕ 249"
+            ],
+            "cityLine": "Београд-Вождовац"
+          }
+        }
+      },
+      "original": {
+        "pib": 100065309,
+        "companyName": "VEROPOULOS DOO BEOGRAD",
+        "storeId": "1027176",
+        "storeName": "Veropoulos 5",
+        "address": "ВОЈВОДЕ СТЕПЕ 249",
+        "city": "Београд-Вождовац",
+        "date": "2024-11-29T19:42:11.000Z",
+        "pfr": "3423Q3NT-3423Q3NT-30588",
+        "total": 1186.94,
+        "pdv": 197.82
+      }
+    },
+    {
+      "billIndex": 11,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 100065309,
+        "companyName": "VEROPOULOS DOO BEOGRAD",
+        "storeId": "1027176",
+        "storeName": "Veropoulos 5",
+        "address": "ВОЈВОДЕ СТЕПЕ 249",
+        "city": "Београд-Вождовац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1027176-Veropoulos 5",
+            "addressLines": [
+              "ВОЈВОДЕ СТЕПЕ 249"
+            ],
+            "cityLine": "Београд-Вождовац"
+          }
+        }
+      },
+      "original": {
+        "pib": 100065309,
+        "companyName": "VEROPOULOS DOO BEOGRAD",
+        "storeId": "1027176",
+        "storeName": "Veropoulos 5",
+        "address": "ВОЈВОДЕ СТЕПЕ 249",
+        "city": "Београд-Вождовац",
+        "date": "2024-12-05T18:32:32.000Z",
+        "pfr": "3423Q3NT-3423Q3NT-30827",
+        "total": 1769.37,
+        "pdv": 252.25
+      }
+    },
+    {
+      "billIndex": 12,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 100065309,
+        "companyName": "VEROPOULOS DOO BEOGRAD",
+        "storeId": "1027176",
+        "storeName": "Veropoulos 5",
+        "address": "ВОЈВОДЕ СТЕПЕ 249",
+        "city": "Београд-Вождовац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1027176-Veropoulos 5",
+            "addressLines": [
+              "ВОЈВОДЕ СТЕПЕ 249"
+            ],
+            "cityLine": "Београд-Вождовац"
+          }
+        }
+      },
+      "original": {
+        "pib": 100065309,
+        "companyName": "VEROPOULOS DOO BEOGRAD",
+        "storeId": "1027176",
+        "storeName": "Veropoulos 5",
+        "address": "ВОЈВОДЕ СТЕПЕ 249",
+        "city": "Београд-Вождовац",
+        "date": "2024-11-30T15:45:34.000Z",
+        "pfr": "C2PFRNXZ-C2PFRNXZ-45969",
+        "total": 806.95,
+        "pdv": 134.49
+      }
+    },
+    {
+      "billIndex": 13,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 112813082,
+        "companyName": "HOMER GMS",
+        "storeId": "1134894",
+        "storeName": "Продавница 1",
+        "address": "БОРСКА 70Ђ",
+        "city": "Београд-Раковица",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1134894-Продавница 1",
+            "addressLines": [
+              "БОРСКА 70Ђ"
+            ],
+            "cityLine": "Београд-Раковица"
+          }
+        }
+      },
+      "original": {
+        "pib": 112813082,
+        "companyName": "HOMER GMS",
+        "storeId": "1134894",
+        "storeName": "Продавница 1",
+        "address": "БОРСКА 70Ђ",
+        "city": "Београд-Раковица",
+        "date": "2024-12-08T13:05:56.000Z",
+        "pfr": "U3AJT4G7-U3AJT4G7-61165",
+        "total": 1490,
+        "pdv": 248.33
+      }
+    },
+    {
+      "billIndex": 14,
+      "success": false,
+      "differences": {
+        "city": {
+          "parsed": "Београд-Вождовац",
+          "original": "цркве"
+        }
+      },
+      "parsed": {
+        "pib": 103915893,
+        "companyName": "ŠTAMPA SISTEM",
+        "storeId": "1059060",
+        "storeName": "BG603",
+        "address": "Војводе Степе испред зграде 120-код",
+        "city": "Београд-Вождовац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 6,
+            "kasir": 7
+          },
+          "rawData": {
+            "storeLine": "1059060-BG603",
+            "addressLines": [
+              "Војводе Степе испред зграде 120-код",
+              "цркве"
+            ],
+            "cityLine": "Београд-Вождовац"
+          }
+        }
+      },
+      "original": {
+        "pib": 103915893,
+        "companyName": "ŠTAMPA SISTEM",
+        "storeId": "1059060",
+        "storeName": "BG603",
+        "address": "Војводе Степе испред зграде 120-код",
+        "city": "цркве",
+        "date": "2023-06-19T17:41:22.000Z",
+        "pfr": "FKBAL5H5-FKBAL5H5-79993",
+        "total": 190,
+        "pdv": 31.67
+      }
+    },
+    {
+      "billIndex": 15,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 104552057,
+        "companyName": "АПОТЕКАРСКА УСТАНОВА  LILLY DROGERIE",
+        "storeId": "1017798",
+        "storeName": "VOŽDOVAC",
+        "address": "ВОЈВОДЕ СТЕПЕ 114-116",
+        "city": "Београд-Вождовац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1017798-VOŽDOVAC - APOTEKA 123",
+            "addressLines": [
+              "ВОЈВОДЕ СТЕПЕ 114-116"
+            ],
+            "cityLine": "Београд-Вождовац"
+          }
+        }
+      },
+      "original": {
+        "pib": 104552057,
+        "companyName": "АПОТЕКАРСКА УСТАНОВА  LILLY DROGERIE",
+        "storeId": "1017798",
+        "storeName": "VOŽDOVAC",
+        "address": "ВОЈВОДЕ СТЕПЕ 114-116",
+        "city": "Београд-Вождовац",
+        "date": "2023-06-19T16:55:31.000Z",
+        "pfr": "56JNU8UM-56JNU8UM-27026",
+        "total": 1735.99,
+        "pdv": 289.33
+      }
+    },
+    {
+      "billIndex": 16,
+      "success": false,
+      "differences": {
+        "city": {
+          "parsed": "Београд-Стари Град",
+          "original": "КРАЉА МИЛАНА 28"
+        }
+      },
+      "parsed": {
+        "pib": 101670560,
+        "companyName": "MERCATOR-S",
+        "storeId": "MERCATOR",
+        "storeName": "S",
+        "address": "1111662-IDEA 333",
+        "city": "Београд-Стари Град",
+        "debug": {
+          "special": "mercator"
+        }
+      },
+      "original": {
+        "pib": 101670560,
+        "companyName": "MERCATOR-S",
+        "storeId": "MERCATOR",
+        "storeName": "S",
+        "address": "1111662-IDEA 333",
+        "city": "КРАЉА МИЛАНА 28",
+        "date": "2023-09-01T21:19:00.000Z",
+        "pfr": "BT7HE5VY-BT7HE5VY-20190",
+        "total": 174.97,
+        "pdv": 29.16
+      }
+    },
+    {
+      "billIndex": 17,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 105801137,
+        "companyName": "GIGS TIX",
+        "storeId": "1251349",
+        "storeName": "Vulkan BW GALERIJA",
+        "address": "БУЛЕВАР ВУДРОА ВИЛСОНА 12",
+        "city": "Београд-Савски Венац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1251349-Vulkan BW GALERIJA",
+            "addressLines": [
+              "БУЛЕВАР ВУДРОА ВИЛСОНА 12"
+            ],
+            "cityLine": "Београд-Савски Венац"
+          }
+        }
+      },
+      "original": {
+        "pib": 105801137,
+        "companyName": "GIGS TIX",
+        "storeId": "1251349",
+        "storeName": "Vulkan BW GALERIJA",
+        "address": "БУЛЕВАР ВУДРОА ВИЛСОНА 12",
+        "city": "Београд-Савски Венац",
+        "date": "2023-05-26T16:02:28.000Z",
+        "pfr": "7URCDF4A-R7WS5MO0-116",
+        "total": 4380,
+        "pdv": 0
+      }
+    },
+    {
+      "billIndex": 18,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 109839118,
+        "companyName": "LPP Serbia",
+        "storeId": "1159749",
+        "storeName": "Reserved SC BEO Beograd",
+        "address": "ВОЈИСЛАВА ИЛИЋА 141",
+        "city": "Београд-Звездара",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1159749-Reserved SC BEO Beograd",
+            "addressLines": [
+              "ВОЈИСЛАВА ИЛИЋА 141"
+            ],
+            "cityLine": "Београд-Звездара"
+          }
+        }
+      },
+      "original": {
+        "pib": 109839118,
+        "companyName": "LPP Serbia",
+        "storeId": "1159749",
+        "storeName": "Reserved SC BEO Beograd",
+        "address": "ВОЈИСЛАВА ИЛИЋА 141",
+        "city": "Београд-Звездара",
+        "date": "2023-04-08T19:25:19.000Z",
+        "pfr": "6NEBRUXR-6NEBRUXR-7910",
+        "total": 1799,
+        "pdv": 299.83
+      }
+    },
+    {
+      "billIndex": 19,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 101739985,
+        "companyName": "SAMOSTALNA TRGOVINSKA RADNJA RANKOVIĆ",
+        "storeId": "1025129",
+        "storeName": "RANKOVIĆ STR KASA 1",
+        "address": "ВОЈВОДЕ СТЕПЕ 241",
+        "city": "Београд-Вождовац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 5,
+            "addressStart": 6,
+            "city": 7,
+            "kasir": 8
+          },
+          "rawData": {
+            "storeLine": "1025129-RANKOVIĆ STR KASA 1",
+            "addressLines": [
+              "ВОЈВОДЕ СТЕПЕ 241"
+            ],
+            "cityLine": "Београд-Вождовац"
+          }
+        }
+      },
+      "original": {
+        "pib": 101739985,
+        "companyName": "SAMOSTALNA TRGOVINSKA RADNJA RANKOVIĆ",
+        "storeId": "1025129",
+        "storeName": "RANKOVIĆ STR KASA 1",
+        "address": "ВОЈВОДЕ СТЕПЕ 241",
+        "city": "Београд-Вождовац",
+        "date": "2023-06-22T18:10:46.000Z",
+        "pfr": "CGASBA62-CGASBA62-95431",
+        "total": 147.6,
+        "pdv": 24.6
+      }
+    },
+    {
+      "billIndex": 20,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 104271434,
+        "companyName": "PEKARA TRPKOVIĆ DOO BEOGRAD",
+        "storeId": "1050420",
+        "storeName": "Prodavnica 2",
+        "address": "НЕМАЊИНА 32",
+        "city": "Београд-Савски Венац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1050420-Prodavnica 2 - Slavija",
+            "addressLines": [
+              "НЕМАЊИНА 32"
+            ],
+            "cityLine": "Београд-Савски Венац"
+          }
+        }
+      },
+      "original": {
+        "pib": 104271434,
+        "companyName": "PEKARA TRPKOVIĆ DOO BEOGRAD",
+        "storeId": "1050420",
+        "storeName": "Prodavnica 2",
+        "address": "НЕМАЊИНА 32",
+        "city": "Београд-Савски Венац",
+        "date": "2023-06-06T13:11:41.000Z",
+        "pfr": "VYKPQKNR-VYKPQKNR-21323",
+        "total": 460,
+        "pdv": 41.82
+      }
+    },
+    {
+      "billIndex": 21,
+      "success": false,
+      "differences": {
+        "city": {
+          "parsed": "Београд-Вождовац",
+          "original": "ТИМОЧКЕ ДИВИЗИЈЕ 1   2"
+        }
+      },
+      "parsed": {
+        "pib": 110071205,
+        "companyName": "DENTAL ĆURČIĆ",
+        "storeId": "1022139",
+        "storeName": "STOMATOLOŠKA ORDINACIJA DENTAL",
+        "address": "ĆURČIĆ",
+        "city": "Београд-Вождовац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 6,
+            "kasir": 7
+          },
+          "rawData": {
+            "storeLine": "1022139-STOMATOLOŠKA ORDINACIJA DENTAL",
+            "addressLines": [
+              "ĆURČIĆ",
+              "ТИМОЧКЕ ДИВИЗИЈЕ 1   2"
+            ],
+            "cityLine": "Београд-Вождовац"
+          }
+        }
+      },
+      "original": {
+        "pib": 110071205,
+        "companyName": "DENTAL ĆURČIĆ",
+        "storeId": "1022139",
+        "storeName": "STOMATOLOŠKA ORDINACIJA DENTAL",
+        "address": "ĆURČIĆ",
+        "city": "ТИМОЧКЕ ДИВИЗИЈЕ 1   2",
+        "date": "2023-06-15T17:56:02.000Z",
+        "pfr": "X5NCK58F-X5NCK58F-514",
+        "total": 7600,
+        "pdv": 0
+      }
+    },
+    {
+      "billIndex": 22,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 100065309,
+        "companyName": "VEROPOULOS DOO BEOGRAD",
+        "storeId": "1027176",
+        "storeName": "Veropoulos 5",
+        "address": "ВОЈВОДЕ СТЕПЕ 249",
+        "city": "Београд-Вождовац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1027176-Veropoulos 5",
+            "addressLines": [
+              "ВОЈВОДЕ СТЕПЕ 249"
+            ],
+            "cityLine": "Београд-Вождовац"
+          }
+        }
+      },
+      "original": {
+        "pib": 100065309,
+        "companyName": "VEROPOULOS DOO BEOGRAD",
+        "storeId": "1027176",
+        "storeName": "Veropoulos 5",
+        "address": "ВОЈВОДЕ СТЕПЕ 249",
+        "city": "Београд-Вождовац",
+        "date": "2023-06-16T14:37:26.000Z",
+        "pfr": "QVEBP7KG-QVEBP7KG-18304",
+        "total": 2091.41,
+        "pdv": 318.52
+      }
+    },
+    {
+      "billIndex": 23,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 108322401,
+        "companyName": "АУ FAMILY PHARM",
+        "storeId": "1197992",
+        "storeName": "AU FAMILY PHARM 06",
+        "address": "ВОЈВОДЕ СТЕПЕ 240",
+        "city": "Београд-Вождовац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1197992-AU FAMILY PHARM 06",
+            "addressLines": [
+              "ВОЈВОДЕ СТЕПЕ 240"
+            ],
+            "cityLine": "Београд-Вождовац"
+          }
+        }
+      },
+      "original": {
+        "pib": 108322401,
+        "companyName": "АУ FAMILY PHARM",
+        "storeId": "1197992",
+        "storeName": "AU FAMILY PHARM 06",
+        "address": "ВОЈВОДЕ СТЕПЕ 240",
+        "city": "Београд-Вождовац",
+        "date": "2023-07-30T16:30:39.000Z",
+        "pfr": "RABEYR2M-RABEYR2M-68161",
+        "total": 191.7,
+        "pdv": 17.43
+      }
+    },
+    {
+      "billIndex": 24,
+      "success": false,
+      "differences": {
+        "city": {
+          "parsed": "Београд-Стари Град",
+          "original": "КРАЉА МИЛАНА 28"
+        }
+      },
+      "parsed": {
+        "pib": 101670560,
+        "companyName": "MERCATOR-S",
+        "storeId": "MERCATOR",
+        "storeName": "S",
+        "address": "1111662-IDEA 333",
+        "city": "Београд-Стари Град",
+        "debug": {
+          "special": "mercator"
+        }
+      },
+      "original": {
+        "pib": 101670560,
+        "companyName": "MERCATOR-S",
+        "storeId": "MERCATOR",
+        "storeName": "S",
+        "address": "1111662-IDEA 333",
+        "city": "КРАЉА МИЛАНА 28",
+        "date": "2023-04-10T22:12:45.000Z",
+        "pfr": "AT4DBN53-AT4DBN53-83493",
+        "total": 319.97,
+        "pdv": 53.33
+      }
+    },
+    {
+      "billIndex": 25,
+      "success": false,
+      "differences": {
+        "city": {
+          "parsed": "Београд-Вождовац",
+          "original": "ВОЈВОДЕ СТЕПЕ 275В"
+        }
+      },
+      "parsed": {
+        "pib": 101729431,
+        "companyName": "TRGOCENTAR",
+        "storeId": "1063030",
+        "storeName": "SKROZ DOBRA PEKARA 78 VOJVODE",
+        "address": "STEPE II",
+        "city": "Београд-Вождовац",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 6,
+            "kasir": 7
+          },
+          "rawData": {
+            "storeLine": "1063030-SKROZ DOBRA PEKARA 78 VOJVODE",
+            "addressLines": [
+              "STEPE II",
+              "ВОЈВОДЕ СТЕПЕ 275В"
+            ],
+            "cityLine": "Београд-Вождовац"
+          }
+        }
+      },
+      "original": {
+        "pib": 101729431,
+        "companyName": "TRGOCENTAR",
+        "storeId": "1063030",
+        "storeName": "SKROZ DOBRA PEKARA 78 VOJVODE",
+        "address": "STEPE II",
+        "city": "ВОЈВОДЕ СТЕПЕ 275В",
+        "date": "2023-04-03T15:27:02.000Z",
+        "pfr": "KAV5TMV5-DBV8GPO0-39007",
+        "total": 79.2,
+        "pdv": 13.2
+      }
+    },
+    {
+      "billIndex": 26,
+      "success": true,
+      "differences": {},
+      "parsed": {
+        "pib": 110480463,
+        "companyName": "DUĆAN GAGA",
+        "storeId": "1061616",
+        "storeName": "Dućan Gaga 2",
+        "address": "Црвене Армије ББ",
+        "city": "Зајечар",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1061616-Dućan Gaga 2",
+            "addressLines": [
+              "Црвене Армије ББ"
+            ],
+            "cityLine": "Зајечар"
+          }
+        }
+      },
+      "original": {
+        "pib": 110480463,
+        "companyName": "DUĆAN GAGA",
+        "storeId": "1061616",
+        "storeName": "Dućan Gaga 2",
+        "address": "Црвене Армије ББ",
+        "city": "Зајечар",
+        "date": "2023-05-06T14:04:47.000Z",
+        "pfr": "3YYUL3TS-3YYUL3TS-11402",
+        "total": 1333.43,
+        "pdv": 210.5
+      }
+    },
+    {
+      "billIndex": 27,
+      "success": false,
+      "differences": {
+        "storeName": {
+          "parsed": "K-FOOD",
+          "original": "K"
+        }
+      },
+      "parsed": {
+        "pib": 113073217,
+        "companyName": "K&S COMBINE",
+        "storeId": "1260676",
+        "storeName": "K-FOOD",
+        "address": "БУЛЕВАР КРАЉА АЛЕКСАНДРА 28",
+        "city": "Београд-Врачар",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 5,
+            "kasir": 6
+          },
+          "rawData": {
+            "storeLine": "1260676-K-FOOD",
+            "addressLines": [
+              "БУЛЕВАР КРАЉА АЛЕКСАНДРА 28"
+            ],
+            "cityLine": "Београд-Врачар"
+          }
+        }
+      },
+      "original": {
+        "pib": 113073217,
+        "companyName": "K&S COMBINE",
+        "storeId": "1260676",
+        "storeName": "K",
+        "address": "БУЛЕВАР КРАЉА АЛЕКСАНДРА 28",
+        "city": "Београд-Врачар",
+        "date": "2023-03-25T15:25:28.000Z",
+        "pfr": "LQABRL36-LQABRL36-5641",
+        "total": 3170,
+        "pdv": 528.33
+      }
+    },
+    {
+      "billIndex": 28,
+      "success": false,
+      "differences": {
+        "city": {
+          "parsed": "Зајечар",
+          "original": "Добривоје Радосављевиц Боби  бб"
+        }
+      },
+      "parsed": {
+        "pib": 107250283,
+        "companyName": "BELI DREN",
+        "storeId": "1183614",
+        "storeName": "Beli dren Dobrivoja",
+        "address": "Radosavljevica Bobija bb",
+        "city": "Зајечар",
+        "debug": {
+          "indices": {
+            "pib": 1,
+            "store": 3,
+            "addressStart": 4,
+            "city": 6,
+            "kasir": 7
+          },
+          "rawData": {
+            "storeLine": "1183614-Beli dren Dobrivoja",
+            "addressLines": [
+              "Radosavljevica Bobija bb",
+              "Добривоје Радосављевиц Боби  бб"
+            ],
+            "cityLine": "Зајечар"
+          }
+        }
+      },
+      "original": {
+        "pib": 107250283,
+        "companyName": "BELI DREN",
+        "storeId": "1183614",
+        "storeName": "Beli dren Dobrivoja",
+        "address": "Radosavljevica Bobija bb",
+        "city": "Добривоје Радосављевиц Боби  бб",
+        "date": "2023-05-05T14:38:02.000Z",
+        "pfr": "9NR8CD3S-9NR8CD3S-81135",
+        "total": 508.79,
+        "pdv": 84.8
+      }
+    }
+  ]
+}
