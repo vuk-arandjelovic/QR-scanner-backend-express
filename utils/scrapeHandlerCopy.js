@@ -84,54 +84,64 @@ async function parseAndInsertData(scrapedData, userId) {
  */
 function extractBasicData(data) {
   try {
-    // Find PIB - first number that's exactly 9 digits
-    const pibIndex = data.findIndex((line) => /^\d{9}$/.test(line));
-    if (pibIndex === -1) throw new Error("Could not find PIB");
-    const pib = parseInt(data[pibIndex], 10);
+    // Find PIB (could be in different formats)
+    const pib = data.find((line) => /^\d{9}$/.test(line.trim()));
 
-    // Company name is always right after PIB
+    // Find company name (usually the line after PIB)
+    const pibIndex = data.findIndex((line) => line === pib);
     const companyName = data[pibIndex + 1];
 
-    // Find kasir line to use as bottom anchor
-    const kasirIndex = data.findIndex(
-      (line) =>
-        line.toLowerCase().includes("касир:") ||
-        line.toLowerCase().includes("kasir:")
-    );
-    if (kasirIndex === -1) throw new Error("Could not find kasir line");
-
-    // Find store info - look for line with 6+ digits and hyphen
-    let storeLineIndex = -1;
-    for (let i = pibIndex + 2; i < kasirIndex; i++) {
-      if (/\d{6,}-/.test(data[i])) {
-        storeLineIndex = i;
-        break;
-      }
-    }
-    if (storeLineIndex === -1)
-      throw new Error("Could not find store identifier");
-
-    // Get store ID and full name
+    // Extract store details
+    const storeLineIndex = data.findIndex((line) => /-/.test(line));
     const storeLine = data[storeLineIndex];
-    const [storeIdPart, ...restOfLine] = storeLine.split("-");
-    const storeId = storeIdPart.match(/\d+/)[0]; // Extract just the numbers
-    const storeName = restOfLine.join("-").trim(); // Keep the rest as-is
+    const [storeId, storeName] = storeLine.split("-").map((s) => s.trim());
 
-    // Get city and address - city is always one line above kasir
-    const cityIndex = kasirIndex - 1;
-    const city = data[cityIndex].trim();
+    // Get address and city
+    const address = data[storeLineIndex + 1];
+    const city = data[storeLineIndex + 2];
 
-    // Address is between store info and city
-    const addressLines = data.slice(storeLineIndex + 1, cityIndex);
-    const address = addressLines.map((line) => line.trim()).join(" "); // Combine all lines, trim each, and join with spaces
+    // Parse date and time
+    const dateLine = data.find(
+      (line) => line.includes("ПФР време:") || line.includes("PFR vreme:")
+    );
+    const dateString = dateLine.split(":").slice(1).join(":").trim();
+    const [datePart, timePart] = dateString.split(" ");
+    const [day, month, year] = datePart.split(".");
+    const [hours, minutes, seconds] = timePart.split(":");
+    const date = new Date(year, month - 1, day, hours, minutes, seconds);
+
+    // Get PFR number
+    const pfrLine = data.find(
+      (line) =>
+        line.includes("ПФР број рачуна:") || line.includes("PFR broj racuna:")
+    );
+    const pfr = pfrLine.split(":")[1].trim();
+
+    // Get total and PDV
+    const totalLine = data.find(
+      (line) =>
+        line.startsWith("Укупан износ:") || line.startsWith("Ukupan iznos:")
+    );
+    const pdvLine = data.find(
+      (line) =>
+        line.startsWith("Укупан износ пореза:") ||
+        line.startsWith("Ukupan iznos poreza:")
+    );
+
+    const total = parseBillAmount(totalLine.split(":")[1].trim());
+    const pdv = parseBillAmount(pdvLine.split(":")[1].trim());
 
     return {
-      pib,
+      pib: parseInt(pib),
       companyName,
       storeId,
       storeName,
       address,
       city,
+      date,
+      pfr,
+      total,
+      pdv,
     };
   } catch (error) {
     throw new Error(`Failed to extract basic data: ${error.message}`);

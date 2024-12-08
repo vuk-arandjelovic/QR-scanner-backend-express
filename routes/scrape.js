@@ -5,6 +5,7 @@ const parseAndInsertData = require("../utils/scrapeHandler");
 const router = express.Router();
 const Response = require("../utils/responseHandler");
 const authMiddleware = require("../middleware/auth-wrapper");
+const validateUrl = require("../utils/validateUrl");
 
 router.post("/", authMiddleware, async (req, res) => {
   const { url } = req.body;
@@ -13,7 +14,7 @@ router.post("/", authMiddleware, async (req, res) => {
       status: 400,
       message: "Please provide a URL!",
     });
-  if (!url.startsWith("https://suf.purs.gov.rs/v/?vl="))
+  if (!validateUrl(url))
     return Response.json(res, {
       status: 400,
       message: "QR code isn't a valid bill URL!",
