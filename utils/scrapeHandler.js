@@ -72,13 +72,33 @@ function extractBasicDataFromHtml($) {
   // Get the date string
   const dateStr = $("#sdcDateTimeLabel").text().trim();
 
-  // Parse date components
-  const [datePart, timePart] = dateStr.split(" ");
-  const [day, month, year] = datePart.replace(".", "").split(".");
-  const [hours, minutes, seconds] = timePart.split(":");
+  // 🚀 REFACATORED DATE PARSING: Use regex to extract components cleanly
+  // Matches: DD.MM.YYYY. HH:MM:SS
+  const match = dateStr.match(
+    /(\d{1,2})\.(\d{1,2})\.(\d{4})\.\s*(\d{1,2}):(\d{1,2}):(\d{1,2})/
+  );
 
-  // Create date (months are 0-based in JavaScript)
-  const date = new Date(year, month - 1, day, hours, minutes, seconds);
+  if (!match) {
+    throw new Error(`Invalid date format: ${dateStr}`);
+  }
+
+  // Destructure parts: [0] is full match, [1] is day, [2] is month, etc.
+  // Note: Month is parsed as month - 1 because JS Date months are 0-based.
+  const [
+    ,
+    // Skip full match
+    day,
+    month,
+    year,
+    hours,
+    minutes,
+    seconds,
+  ] = match.map((val, index) => {
+    // Convert to number; subtract 1 from month (index 2)
+    return index === 2 ? parseInt(val, 10) - 1 : parseInt(val, 10);
+  });
+
+  const date = new Date(year, month, day, hours, minutes, seconds);
 
   const basicData = {
     pib: $("#tinLabel").text().trim(),
